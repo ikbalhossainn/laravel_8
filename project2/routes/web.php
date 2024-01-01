@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Middleware\userAuthentication;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +26,13 @@ Route::get('/', function () {
 
 Route::get('/admin', function () {
     return view('backend.dashboard');
-});
+})->middleware('authUser');
 
 Route::get('/login', function () {
     return view('backend.login');
 });
 
-//  Route::post('/login',[LoginController::class, 'authenticate'] );
-//  Route::git('/logout',[LoginController::class, 'logout'] );
+ Route::post('/login',[LoginController::class, 'authenticate'] )->middleware('authUser');
+ Route::get('/logout',[LoginController::class, 'logout'] );
 
 
