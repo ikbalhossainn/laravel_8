@@ -1,11 +1,14 @@
 @extends('backend.layouts.app')
 
+
 @section('title', 'Dashboard - NiceAdmin Bootstrap Template')
 @section('content')
 <main id="main" class="main">
-
+  
     <div class="pagetitle">
       <h1>Dashboard</h1>
+ <!-- Auth::user()->email -->
+
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
